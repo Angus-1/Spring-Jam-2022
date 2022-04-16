@@ -5,9 +5,9 @@ using UnityEngine;
 public class FollowScript : MonoBehaviour
 {
     public Transform mTarget;
-    float mSpeed = 10.0f;
+    float mSpeed = 5.0f;
     Vector3 mLookDirection;
-    const float EPSILON = 0.2f;
+    const float EPSILON = 2.5f;
     
  
     void Start()
@@ -16,7 +16,7 @@ public class FollowScript : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         mLookDirection = (mTarget.position - transform.position).normalized;
 

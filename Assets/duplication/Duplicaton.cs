@@ -14,8 +14,8 @@ public class Duplicaton : MonoBehaviour
         
         for (var i = 0; i < 2; i++)
         {
-            offset = Random.Range(-1.1f, 1.1f);
-            Instantiate(prefab, new Vector3(i * player.transform.position.x+ offset, player.transform.position.y+ offset, player.transform.position.z + offset), Quaternion.identity);
+            offset = Random.Range(-2.5f, 2.5f);
+            Instantiate(prefab, new Vector3(player.transform.position.x + offset, player.transform.position.y + offset, 2), Quaternion.identity);
         }
     }
 
