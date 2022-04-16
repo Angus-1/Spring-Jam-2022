@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class FollowScript : MonoBehaviour
 {
-    private GameObject player;
-    public float moveSpeed;
-
-    Rigidbody rb;
-
-    private void Start()
+    public Transform mTarget;
+    float mSpeed = 10.0f;
+    Vector3 mLookDirection;
+    const float EPSILON = 0.2f;
+    
+ 
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-
+       mTarget = GameObject.Find("Player").transform;
     }
-    private void FixedUpdate()
+
+
+    void Update()
     {
-        if(Vector2.Distance(player.transform.position, transform.position) >= 5.0f)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
+        mLookDirection = (mTarget.position - transform.position).normalized;
 
-        }
+        if ((transform.position - mTarget.position).magnitude > EPSILON)
+            transform.Translate(mLookDirection * Time.deltaTime * mSpeed);
     }
+
 }
