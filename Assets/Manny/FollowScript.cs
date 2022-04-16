@@ -16,7 +16,7 @@ public class FollowScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Vector2.Distance(player.transform.position, transform.position) >= 2.0f)
+        if(Vector2.Distance(player.transform.position, transform.position) >= 5.0f)
         {
             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, moveSpeed * Time.deltaTime);
 
