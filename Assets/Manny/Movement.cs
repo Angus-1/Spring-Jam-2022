@@ -6,6 +6,9 @@ public class Movement : MonoBehaviour
 {
     Rigidbody rb;
     BoxCollider bc;
+    Vector3 moveXMent;
+    public float speed;
+    public float jumpVel;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +17,20 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        playerMove();
     }
 
-    void Movement()
+    void playerMove()
     {
-
+        float moveX = Input.GetAxis("Horizontal");
+        moveXMent = new Vector3(moveX, 0, 0);
+        transform.Translate(moveXMent * speed * Time.deltaTime, Space.World);
+        if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(bc.bounds.center, transform.TransformDirection(Vector3.down), 5))
+        {
+            rb.velocity = Vector3.up * jumpVel;
+        }
     }
+
 }
