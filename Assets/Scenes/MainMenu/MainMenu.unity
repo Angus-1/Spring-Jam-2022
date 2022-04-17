@@ -533,7 +533,7 @@ MonoBehaviour:
     Go to Cabinets to gain more short
     followers
 
-    Avoid Red Walls if you are alone. '
+    Avoid Scissors if you are alone. '
 --- !u!222 &1277215975
 CanvasRenderer:
   m_ObjectHideFlags: 0
