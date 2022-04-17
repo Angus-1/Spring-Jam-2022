@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class WallSpawn : MonoBehaviour
 {
-    public GameObject wall;
+    public GameObject posWall;
+    public GameObject negWall;
     int maxWalls;
     public int numofWalls;
 
@@ -13,7 +14,7 @@ public class WallSpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxWalls = 3;
+        maxWalls = 10;
         numofWalls = 0;
     }
 
@@ -23,14 +24,20 @@ public class WallSpawn : MonoBehaviour
         if (numofWalls < maxWalls)
         {
             float chance = Random.Range(0f, 5f);
-            if (chance > 4f)
+            if (chance >= 2.5f)
             {
                 var position = new Vector3(Random.Range(-6, 6), 1, Random.Range(-7, 7));
                 if (!Physics.CheckSphere(position, spawnCollisionCheckRadius))
                 {
-                    Instantiate(wall, position, Quaternion.identity);
+                    Instantiate(posWall, position, Quaternion.identity);
                     numofWalls++;
                 }
+            }
+            else
+            {
+                var position = new Vector3(Random.Range(-9, 9), 1, Random.Range(-6, 6));
+                Instantiate(negWall, position, Quaternion.identity);
+                numofWalls++;
             }
         }
       

@@ -425,8 +425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7563c40fe2f1ad49b015899df79232b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 1621880174837020762, guid: 2bbcc668ce3eb3547bd83d96fcf93ea9, type: 3}
+  posWall: {fileID: 1621880174837020762, guid: 2bbcc668ce3eb3547bd83d96fcf93ea9, type: 3}
+  negWall: {fileID: 4249305792911479378, guid: a721ac8cfa6e85540a6b2d5d63e197fd, type: 3}
   numofWalls: 0
+  spawnRadius: 1
+  spawnCollisionCheckRadius: 0
 --- !u!1 &359338609
 GameObject:
   m_ObjectHideFlags: 0
