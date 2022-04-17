@@ -25,7 +25,16 @@ public class WallScript : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            spawnerScript.numofWalls--;
+            Destroy(this.gameObject);
+        }
+    }
 
-   
+
+
 
 }
