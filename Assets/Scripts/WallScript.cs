@@ -27,7 +27,16 @@ public class WallScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Remover") || other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
+        {
+            if (this.gameObject.tag == "Wall")
+            {
+                spawnerScript.numofWalls--;
+                Destroy(this.gameObject);
+
+            }
+        }
+        if (other.CompareTag("Remover"))
         {
             spawnerScript.numofWalls--;
             Destroy(this.gameObject);

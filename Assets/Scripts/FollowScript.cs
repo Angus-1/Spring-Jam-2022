@@ -24,13 +24,15 @@ public class FollowScript : MonoBehaviour
             transform.Translate(mLookDirection * Time.deltaTime * mSpeed);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "BadWall")
+        if (collision.gameObject.tag == "BadWall")
         {
             Destroy(this.gameObject);
 
         }
     }
+
+    
 
 }
