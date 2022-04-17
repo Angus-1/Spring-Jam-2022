@@ -23,7 +23,7 @@ public class WallSpawn : MonoBehaviour
             float chance = Random.Range(0f, 5f);
             if (chance > 4f)
             {
-                Instantiate(wall, position, Quaternion.identity);
+                Instantiate(wall, transform.position + position, Quaternion.identity);
                 numofWalls++;
             }
 

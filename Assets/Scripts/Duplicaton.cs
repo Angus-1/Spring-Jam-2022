@@ -39,7 +39,7 @@ public class Duplicaton : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "AdditiveWall")
+        if (other.tag == "Wall")
         {
             spawnAmt = other.GetComponent<WallScript>().wallValue;
             Start();

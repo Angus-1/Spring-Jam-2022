@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Spawner
   - Clone
+  - Wall
+  - BadWall
   layers:
   - Default
   - TransparentFX
