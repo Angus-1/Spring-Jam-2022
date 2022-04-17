@@ -7,6 +7,8 @@ public class Duplicaton : MonoBehaviour
     // Start is called before the first frame update
     public GameObject prefab;
     public GameObject player;
+    public AudioClip yay;
+    public AudioSource camSpeaker;
 
     public float offset;
     public float spawnAmt = 0;
@@ -34,6 +36,8 @@ public class Duplicaton : MonoBehaviour
         if (other.CompareTag("Wall"))
         {
             spawnAmt = other.GetComponent<WallScript>().wallValue;
+            camSpeaker.clip = yay;
+            camSpeaker.Play();
             Start();
 
         }
