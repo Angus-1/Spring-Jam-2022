@@ -4,43 +4,43 @@ using UnityEngine;
 
 public class WallSpawn : MonoBehaviour
 {
-    public GameObject posWall;
-    public GameObject negWall;
-    int maxWalls;
-    public int numofWalls;
+  
+        public GameObject[] wallType;
+        GameObject wall;
+        public int numofWalls = 0;
+        public int maxWalls;
+        private float radius = 1f; //Radius of object to spawn
 
-    public float spawnRadius = 1F;
-    public float spawnCollisionCheckRadius;
-    // Start is called before the first frame update
-    void Start()
-    {
-        maxWalls = 10;
-        numofWalls = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (numofWalls < maxWalls)
+        void Start()
         {
-            float chance = Random.Range(0f, 5f);
-            if (chance >= 2.5f)
+            StartCoroutine(SpawnObjects());
+        }
+
+
+        IEnumerator SpawnObjects()
+        {
+           while (numofWalls < maxWalls)
             {
-                var position = new Vector3(Random.Range(-6, 6), 1, Random.Range(-7, 7));
-                if (!Physics.CheckSphere(position, spawnCollisionCheckRadius))
-                {
-                    Instantiate(posWall, position, Quaternion.identity);
-                    numofWalls++;
-                }
-            }
-            else
-            {
-                var position = new Vector3(Random.Range(-9, 9), 1, Random.Range(-6, 6));
-                Instantiate(negWall, position, Quaternion.identity);
+            wall = wallType[Random.Range(0, 2)];
+
+            Vector3 spawnPos = new Vector3(Random.Range(0.0f, 5.0f), 1.0f, Random.Range(0.0f, 5.0f));
+                //Check collisions
+                if (DetectCollisions(spawnPos) > 0)
+                    continue;
+
+                Instantiate(wall, spawnPos, Quaternion.identity);
+                yield return new WaitForSeconds(1.0f);
                 numofWalls++;
             }
         }
-      
 
-    }
+        private int DetectCollisions(Vector3 pos)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(pos, radius);
+            return hitColliders.Length;
+        }
+
+   
 }
+
+
