@@ -13,6 +13,7 @@ public class FollowScript : MonoBehaviour
     void Start()
     {
        mTarget = GameObject.Find("Player").transform;
+       mTarget.GetComponent<Movement>().numOfClones++;
     }
 
 
@@ -26,8 +27,9 @@ public class FollowScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "BadWall")
+        if (collision.gameObject.CompareTag("BadWall"))
         {
+            mTarget.GetComponent<Movement>().numOfClones--;
             Destroy(this.gameObject);
 
         }

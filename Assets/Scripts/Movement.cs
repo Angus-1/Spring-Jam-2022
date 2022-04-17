@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Movement : MonoBehaviour
     Vector3 moveXMent;
     public float speed;
     public float jumpVel;
+
+    bool alive = true;
+    public int numOfClones = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +23,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        playerMove();
+        if (alive) { playerMove(); }
+        
+    }
+
+    public void Die()
+    {
+        alive = false;
+        SceneManager.LoadScene(0);
     }
 
     void playerMove()
