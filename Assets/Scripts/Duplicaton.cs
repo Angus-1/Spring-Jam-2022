@@ -23,7 +23,7 @@ public class Duplicaton : MonoBehaviour
             }
             else
             {
-                Instantiate(prefab, new Vector3(player.transform.position.x + 5, player.transform.position.y - 5, 2), Quaternion.identity);
+                Instantiate(prefab, new Vector3(player.transform.position.x + 5, player.transform.position.y + 5, 5), Quaternion.identity);
             }
         }
     }

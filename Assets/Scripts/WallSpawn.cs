@@ -23,15 +23,16 @@ public class WallSpawn : MonoBehaviour
             {
             wall = wallType[Random.Range(0, 2)];
 
-            Vector3 spawnPos = new Vector3(Random.Range(0.0f, 5.0f), 1.0f, Random.Range(0.0f, 5.0f));
+            Vector3 spawnPos = new Vector3(Random.Range(-10.0f, 10.0f), 1.0f, Random.Range(0.0f, 5.0f));
                 //Check collisions
                 if (DetectCollisions(spawnPos) > 0)
                     continue;
 
-                Instantiate(wall, spawnPos, Quaternion.identity);
+                Instantiate(wall, spawnPos + this.gameObject.transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(1.0f);
                 numofWalls++;
             }
+        StartCoroutine(SpawnObjects());
         }
 
         private int DetectCollisions(Vector3 pos)
