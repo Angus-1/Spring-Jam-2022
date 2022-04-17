@@ -16,10 +16,12 @@ public class WallSpawn : MonoBehaviour
             StartCoroutine(SpawnObjects());
         }
 
+        
 
-        IEnumerator SpawnObjects()
+
+        private IEnumerator SpawnObjects()
         {
-           while (numofWalls < maxWalls)
+           while (numofWalls <= maxWalls)
             {
             wall = wallType[Random.Range(0, 2)];
 
@@ -31,8 +33,11 @@ public class WallSpawn : MonoBehaviour
                 Instantiate(wall, spawnPos + this.gameObject.transform.position, Quaternion.identity);
                 yield return new WaitForSeconds(1.0f);
                 numofWalls++;
+            
             }
-        StartCoroutine(SpawnObjects());
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine(SpawnObjects());
+            
         }
 
         private int DetectCollisions(Vector3 pos)
