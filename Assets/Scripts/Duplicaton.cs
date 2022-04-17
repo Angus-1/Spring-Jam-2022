@@ -9,13 +9,22 @@ public class Duplicaton : MonoBehaviour
     public GameObject player;
 
     public float offset;
+    public float spawnAmt = 0;
     void Start()
     {
         
-        for (var i = 0; i < 2; i++)
+        for (var i = 0; i < spawnAmt; i++)
         {
-            offset = Random.Range(-1.1f, 1.1f);
-            Instantiate(prefab, new Vector3(i * player.transform.position.x+ offset, player.transform.position.y+ offset, player.transform.position.z + offset), Quaternion.identity);
+            offset = Random.Range(-2.5f, 2.5f);
+            if (Physics.CheckSphere(new Vector3(player.transform.position.x + offset, player.transform.position.y + offset, 2), 2))
+            {
+                Instantiate(prefab, new Vector3(player.transform.position.x + offset, player.transform.position.y + offset, 2), Quaternion.identity);
+
+            }
+            else
+            {
+                Instantiate(prefab, new Vector3(player.transform.position.x + 5, player.transform.position.y - 5, 2), Quaternion.identity);
+            }
         }
     }
 
@@ -24,7 +33,17 @@ public class Duplicaton : MonoBehaviour
       
     void Update()
     {
-    
+        
        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "AdditiveWall")
+        {
+            spawnAmt = other.GetComponent<WallScript>().wallValue;
+            Start();
+
+        }
     }
 }

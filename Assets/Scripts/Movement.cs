@@ -25,7 +25,8 @@ public class Movement : MonoBehaviour
     void playerMove()
     {
         float moveX = Input.GetAxis("Horizontal");
-        moveXMent = new Vector3(moveX, 0, 0);
+        float moveY = Input.GetAxis("Vertical");
+        moveXMent = new Vector3(moveX, 0, moveY);
         transform.Translate(moveXMent * speed * Time.deltaTime, Space.World);
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(bc.bounds.center, transform.TransformDirection(Vector3.down), 5))
         {
