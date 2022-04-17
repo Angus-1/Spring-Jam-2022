@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class WallScript : MonoBehaviour
 {
-    int[] nums = { 1, 5, 10, 20, 30 };
-    int wallValue;
-    GameObject Wall;
+    int[] nums = { 1, 5, 10};
+    public int wallValue;
+    GameObject wall;
     WallSpawn spawnerScript;
     // Start is called before the first frame update
     void Start()
     {
-        wallValue = nums[Random.Range(0, 5)];
+        wallValue = nums[Random.Range(0, 2)];
         Debug.Log(wallValue);
-        Wall = GameObject.FindGameObjectWithTag("Spawner");
-        spawnerScript = Wall.GetComponent<WallSpawn>();
+        wall = GameObject.FindGameObjectWithTag("Spawner");
+        spawnerScript = wall.GetComponent<WallSpawn>();
         
     }
 
@@ -25,9 +25,7 @@ public class WallScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        spawnerScript.numofWalls--;
-    }
+
+   
 
 }

@@ -24,4 +24,13 @@ public class FollowScript : MonoBehaviour
             transform.Translate(mLookDirection * Time.deltaTime * mSpeed);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "BadWall")
+        {
+            Destroy(this.gameObject);
+
+        }
+    }
+
 }
