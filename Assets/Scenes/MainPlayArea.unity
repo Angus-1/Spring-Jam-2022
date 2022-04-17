@@ -256,7 +256,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 50
+  field of view: 25
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -362,12 +362,12 @@ PrefabInstance:
     - target: {fileID: 3427321151339908041, guid: 8085d31d4109f034faa4b956a7a9ba2d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3427321151339908041, guid: 8085d31d4109f034faa4b956a7a9ba2d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.45
+      value: 42.4
       objectReference: {fileID: 0}
     - target: {fileID: 3427321151339908041, guid: 8085d31d4109f034faa4b956a7a9ba2d,
         type: 3}
@@ -481,10 +481,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1812835451731269726, guid: 11a1ffe9306c75648af326bd1a15d9ef,
+    - target: {fileID: 7284547048382110306, guid: 11a1ffe9306c75648af326bd1a15d9ef,
         type: 3}
-      propertyPath: jumpVel
-      value: 10
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7284547048382110307, guid: 11a1ffe9306c75648af326bd1a15d9ef,
         type: 3}
@@ -696,7 +696,7 @@ GameObject:
   - component: {fileID: 1559553215}
   m_Layer: 0
   m_Name: GameObject (2)
-  m_TagString: Untagged
+  m_TagString: Remover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -709,11 +709,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559553214}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 12.177397, z: 59.254227}
-  m_Center: {x: 0, y: 3.694127, z: -6.847741}
+  m_Size: {x: 1, y: 25, z: 100}
+  m_Center: {x: 0, y: 4, z: 0}
 --- !u!4 &1559553216
 Transform:
   m_ObjectHideFlags: 0
@@ -722,8 +722,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1559553214}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.8, y: 1, z: -7.4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.8, y: 6, z: -10}
+  m_LocalScale: {x: 2.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
