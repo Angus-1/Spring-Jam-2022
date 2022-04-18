@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     Vector3 moveXMent;
     public float speed;
     public float jumpVel;
+    public AudioClip jump;
+    public AudioSource camSpeaker;
 
     bool alive = true;
     public int numOfClones = 0;
@@ -41,6 +43,8 @@ public class Movement : MonoBehaviour
         transform.Translate(moveXMent * speed * Time.deltaTime, Space.World);
         if (Input.GetKeyDown(KeyCode.Space) && Physics.Raycast(bc.bounds.center, transform.TransformDirection(Vector3.down), 5))
         {
+            camSpeaker.clip = jump;
+            camSpeaker.Play();
             rb.velocity = Vector3.up * jumpVel;
         }
     }

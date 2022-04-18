@@ -603,6 +603,16 @@ PrefabInstance:
       propertyPath: camSpeaker
       value: 
       objectReference: {fileID: 1191166769}
+    - target: {fileID: 1812835451731269726, guid: 11a1ffe9306c75648af326bd1a15d9ef,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: a5e03bdf68a774d7bbdd11fe48caaf4c, type: 3}
+    - target: {fileID: 1812835451731269726, guid: 11a1ffe9306c75648af326bd1a15d9ef,
+        type: 3}
+      propertyPath: camSpeaker
+      value: 
+      objectReference: {fileID: 1191166769}
     - target: {fileID: 7284547048382110306, guid: 11a1ffe9306c75648af326bd1a15d9ef,
         type: 3}
       propertyPath: m_IsTrigger
