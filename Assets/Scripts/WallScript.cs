@@ -38,11 +38,6 @@ public class WallScript : MonoBehaviour
                 Destroy(this.gameObject);
 
             }
-            if (gameObject.CompareTag("BadWall") && playerCount == 0)
-            {
-                Debug.Log("Lol Death");
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Movement>().Die();
-            }
         }
         if (other.CompareTag("Remover"))
         {

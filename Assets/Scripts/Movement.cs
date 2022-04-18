@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ public class Movement : MonoBehaviour
     public float speed;
     public float jumpVel;
     public AudioClip jump;
+    public AudioClip death;
     public AudioSource camSpeaker;
 
     bool alive = true;
@@ -27,13 +29,20 @@ public class Movement : MonoBehaviour
     {
         if (alive) { playerMove(); }
         
+        
     }
 
     public void Die()
     {
-        alive = false;
-        SceneManager.LoadScene(0);
+        if(numOfClones == 0)
+        {
+            alive = false;
+            SceneManager.LoadScene(0);
+
+        }
     }
+
+   
 
     void playerMove()
     {
@@ -46,6 +55,14 @@ public class Movement : MonoBehaviour
             camSpeaker.clip = jump;
             camSpeaker.Play();
             rb.velocity = Vector3.up * jumpVel;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("BadWall") && numOfClones == 0)
+        {
+            Die();
         }
     }
 
